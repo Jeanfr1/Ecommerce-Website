@@ -1,0 +1,23 @@
+.header {
+  background-color: #f7f3eb; /* Tom suave para o fundo */
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #333; /* Cor de texto mais escura */
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #d87c3c; /* Cor de destaque ao passar o mouse */
+}

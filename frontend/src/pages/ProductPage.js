@@ -11,7 +11,7 @@ const ProductPage = () => {
     const fetchProduct = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:5000/api/products/${id}`
+          `${process.env.REACT_APP_BACKEND_URL}/api/products/${id}`
         );
         setProduct(data);
       } catch (error) {

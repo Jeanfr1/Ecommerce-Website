@@ -1,0 +1,32 @@
+.productDetailPage {
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  gap: 40px;
+}
+
+.productImage {
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+.productDetails {
+  max-width: 600px;
+}
+
+.productOptions {
+  margin: 20px 0;
+}
+
+.addToCartButton {
+  background-color: #d87c3c;
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.addToCartButton:hover {
+  background-color: #b06030;
+}

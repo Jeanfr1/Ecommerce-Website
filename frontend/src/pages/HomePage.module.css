@@ -1,0 +1,28 @@
+/* src/pages/HomePage.module.css */
+.homePage {
+  padding: 20px;
+}
+
+.productsSection,
+.testimonialsSection {
+  margin-bottom: 40px;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.testimonialsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.testimonial {
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

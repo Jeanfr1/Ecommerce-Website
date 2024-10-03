@@ -1,27 +1,28 @@
-require("dotenv").config();
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
+import express from "express";
+import path from "path";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-const productRoutes = require("./routes/productRoutes");
-const userRoutes = require("./routes/userRoutes");
-
+dotenv.config();
 const app = express();
-app.use(cors());
+
+// Conectar ao MongoDB (configuração simplificada)
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB Conectado"))
+  .catch((err) => console.error("Erro ao conectar ao MongoDB:", err));
+
+// Middleware para servir arquivos estáticos
+const __dirname = path.resolve();
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+
+// Middleware para parsear JSON
 app.use(express.json());
 
-// Conectar ao MongoDB
-mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("MongoDB conectado"))
-  .catch((error) => console.error("Erro ao conectar ao MongoDB:", error));
-
-// Rotas
-app.use("/api/products", productRoutes);
-app.use("/api/users", userRoutes);
+// Rotas e outros middlewares podem ser adicionados aqui...
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
+
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});
